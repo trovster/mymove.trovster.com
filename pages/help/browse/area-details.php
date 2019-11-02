@@ -1,0 +1,2 @@
+<p>This page shows a selection of need-to-know information if you consider settling down in a specific area around the
+University of Bradford. The map at the bottom gives you a rough impression of the street network. </p>
