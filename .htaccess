@@ -1,0 +1,13 @@
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^([^/.]+)/details/?$ /index.php?section=$1&details=true [L,NC,QSA]
+RewriteRule ^([^/.]+)/find/?$ /index.php?section=$1&find=true [L,NC,QSA]
+RewriteRule ^([^/.]+)/([^/.]+)/([^/.]+)/?$ /index.php?section=$1&type=$2&part=$3 [L,NC,QSA]
+RewriteRule ^([^/.]+)/([^/.]+)/?$ /index.php?section=$1&type=$2 [L,NC,QSA]
+RewriteRule ^([^/.]+)/?$ index.php?section=$1 [L,NC,QSA]
+RewriteRule ^/$ /index.php [L]
+</IfModule>

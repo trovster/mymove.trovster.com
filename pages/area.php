@@ -2,11 +2,12 @@
 $area_output = ucwords(str_replace('-',' ',$_GET['section']));
 $area_search = str_replace('-',' ',$_GET['section']);
 
-if($_GET['find']=='true')
+if(!empty($_GET['find']) && $_GET['find']=='true')
 {
+	global $dbase;
 	$sql = "SELECT area,address,bedrooms,rent,available FROM houses WHERE area='$area_search' ORDER BY address ASC";
-	$sql_query = mysql_query($sql);
-	if(mysql_num_rows($sql_query)==0)
+	$sql_query = mysqli_query($dbase, $sql);
+	if(!$sql_query || mysqli_num_rows($sql_query)==0)
 	{
 		echo '<p id="error">Sorry, <strong>no houses</strong> found.</p>'."\n\n";
 	}
@@ -43,10 +44,10 @@ if($_GET['find']=='true')
 			echo '<h2'.$first_header.'><a href="'.$address_url.'/">'.$in_assistant.$address_output.'</a></h2>'."\n";
 			
 			$image_url = 'images/'.$area_lower.'/'.$address_lower.'-small.jpg';
-			list($width, $height) = getimagesize($image_url);
-			if(getimagesize($image_url)===false)
+			list($width, $height) = getimagesize($_SERVER['DOCUMENT_ROOT'] . $image_url);
+			if(getimagesize($_SERVER['DOCUMENT_ROOT'] . $image_url)===false)
 			{
-				list($width, $height) = getimagesize('images/no_image_small.gif');
+				list($width, $height) = getimagesize($_SERVER['DOCUMENT_ROOT'] . 'images/no_image_small.gif');
 				echo '<p id="image"><img src="images/no_image_small.gif" alt="No Image Provided" height="'.$height.'px" width="'.$width.'px" /></p>'."\n";
 			}
 			else
@@ -58,14 +59,14 @@ if($_GET['find']=='true')
 			echo '<dt>Bedrooms</dt>'."\n";
 			echo '<dd>'.$total_rooms.'</dd>'."\n";
 			echo '<dt>Rent</dt>'."\n";;
-			echo '<dd>£'.$rent.' <abbr title="Price Per Person Per Week">PPW</abbr></dd>'."\n";
+			echo '<dd>ï¿½'.$rent.' <abbr title="Price Per Person Per Week">PPW</abbr></dd>'."\n";
 			echo '<dt>Available</dt>'."\n";
 			echo '<dd>'.$available_date.'</dd>'."\n";
 			echo '</dl>'."\n\n";
 		}
 	}
 }
-elseif($_GET['details']=='true')
+elseif(!empty($_GET['details']) && $_GET['details']=='true')
 {
 	echo '<h2 id="content">'.$area_output.'</h2>';
 	
@@ -87,7 +88,7 @@ elseif(isset($_GET['add']))
 		echo '<p id="house_add"><strong>'.$added_house.'</strong> has been added to your assistant.</p>'."\n\n";
 	}
 	
-	echo '<p id="check_assistant">If you want to rate the house simply <strong>check the <a href="assistant/">Assistant</a></strong>.</p>';
+	echo '<p id="check_assistant">If you want to rate the house simply <strong>check the <a href="/assistant/">Assistant</a></strong>.</p>';
 	
 	//$added_array = $_GET['add'];
 	//$expire_time = time()+(3600*24*7); // 1 hour x 1 day x 1 week.
@@ -113,11 +114,12 @@ elseif(isset($_GET['add']))
 }
 elseif(isset($_GET['find']))
 {
+	global $dbase;
 	$address_search = strtolower(str_replace('-',' ',$_GET['find']));
 	$section_search = strtolower(str_replace('-',' ',$_GET['section']));
 	$sql = "SELECT * FROM houses WHERE address='$address_search' AND area='$section_search'";
-	$sql_query = mysql_query($sql);
-	if(mysql_num_rows($sql_query)==0)
+	$sql_query = mysqli_query($dbase, $sql);
+	if(!$sql_query || mysqli_num_rows($sql_query)==0)
 	{
 		echo '<p id="error">Sorry, <strong>no houses</strong> found.</p>'."\n\n";
 	}
@@ -181,9 +183,9 @@ elseif(isset($_GET['find']))
 			echo '<h3 class="trigger"><span></span>Costs</h3>'."\n";
 			echo '<dl>'."\n";
 			echo '<dt>Rent</dt>'."\n";
-			echo '<dd>£'.ucwords($rent).' <abbr title="Price Per Person Per Week">PPW</abbr></dd>'."\n";
+			echo '<dd>ï¿½'.ucwords($rent).' <abbr title="Price Per Person Per Week">PPW</abbr></dd>'."\n";
 			echo '<dt>Deposit</dt>'."\n";
-			echo '<dd>£'.ucwords($deposit).'</dd>'."\n";
+			echo '<dd>ï¿½'.ucwords($deposit).'</dd>'."\n";
 			echo '<dt>Water</dt>'."\n";
 			echo '<dd>'.ucwords($water).'</dd>'."\n";
 			echo '<dt>Gas</dt>'."\n";
@@ -210,10 +212,10 @@ elseif(isset($_GET['find']))
 			
 			$photo_url = 'images/'.$address_url.'.jpg';			
 			$image_url = 'images/'.$area_lower.'/'.$address_lower.'.jpg';
-			list($width, $height) = getimagesize($image_url);
-			if(getimagesize($image_url)===false)
+			list($width, $height) = getimagesize($_SERVER['DOCUMENT_ROOT'] . $image_url);
+			if(getimagesize($_SERVER['DOCUMENT_ROOT'] . $image_url)===false)
 			{
-				list($width, $height) = getimagesize('images/no_image_large.gif');
+				list($width, $height) = getimagesize($_SERVER['DOCUMENT_ROOT'] . 'images/no_image_large.gif');
 				echo '<div id="property"><img src="images/no_image_large.gif" alt="No Image Provided" height="'.$height.'px" width="'.$width.'px" /></div>'."\n\n";
 			}
 			else
@@ -222,8 +224,8 @@ elseif(isset($_GET['find']))
 			}
 
 			echo '<ul id="add_house">'."\n";
-			echo '<li id="info"><a href="'.$_GET['section'].'/details/">Area Details</a></li>'."\n";
-			echo '<li><a href="'.$_GET['section'].'/'.$_GET['find'].'/add/">Add House</a></li>'."\n";
+			echo '<li id="info"><a /'.$_GET['section'].'/details/">Area Details</a></li>'."\n";
+			echo '<li><a href="/'.$_GET['section'].'/'.$_GET['find'].'/add/">Add House</a></li>'."\n";
 			echo '</ul>'."\n\n";
 		}
 	}
@@ -250,8 +252,8 @@ else
 	echo '</dl>'."\n\n";
 	
 	echo '<ul id="more_details">'."\n";
-	echo '<li id="find"><a href="'.$_GET['section'].'/find/">Find A House</a></li>'."\n";
-	echo '<li id="details"><a href="'.$_GET['section'].'/details/">Area Details</a></li>'."\n";
+	echo '<li id="find"><a href="/'.$_GET['section'].'/find/">Find A House</a></li>'."\n";
+	echo '<li id="details"><a href="/'.$_GET['section'].'/details/">Area Details</a></li>'."\n";
 	echo '</ul>'."\n\n";
 }
 ?>

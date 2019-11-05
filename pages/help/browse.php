@@ -21,7 +21,7 @@ else
 		{
 			$last = ' class="last"';
 		}
-		echo '<li'.$last.'><a href="help/browse/'.$browse_help_url.'/">'.$browse_help_output.'</a></li>'."\n";	
+		echo '<li'.$last.'><a href="/help/browse/'.$browse_help_url.'/">'.$browse_help_output.'</a></li>'."\n";	
 	}
 	echo '</ul>'."\n";
 }

@@ -1,9 +1,9 @@
 <p id="intro">The application divides into three main areas:</p>
 
 <ol>
-<li id="help-header"><a href="help/general-navigation/#main-navigation"><span></span>Header</a></li>
-<li id="help-body"><a href="help/general-navigation/#main-content"><span></span>Body</a></li>
-<li id="help-footer"><a href="help/general-navigation/#sub-navigation"><span></span>Footer</a></li>
+<li id="help-header"><a href="/help/general-navigation/#main-navigation"><span></span>Header</a></li>
+<li id="help-body"><a href="/help/general-navigation/#main-content"><span></span>Body</a></li>
+<li id="help-footer"><a href="/help/general-navigation/#sub-navigation"><span></span>Footer</a></li>
 </ol>
 
 <h3 id="main-navigation">1. Header | Main Navigation</h3>
@@ -53,8 +53,8 @@ $help_description_array = array(
 echo '<dl>'."\n";
 for($i=0; $i<count($help_icon_array); $i++)
 {
-	$image_url = 'images/help/'.$help_icon_array[$i].'.gif';
-	list($width, $height) = getimagesize($image_url);
+	$image_url = '/images/help/'.$help_icon_array[$i].'.gif';
+	list($width, $height) = getimagesize($_SERVER['DOCUMENT_ROOT'] . $image_url);
 	echo '<dt><img src="'.$image_url.'" alt="'.$help_icon_alt_array[$i].'" width="'.$width.'px" height="'.$height.'px" /></dt>'."\n";
 	echo '<dd>'.$help_description_array[$i].'.</dd>'."\n";
 }

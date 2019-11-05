@@ -20,9 +20,9 @@ else
 {
 	echo '<h2 id="help_title">Welcome to the help!</h2>'."\n";
 	echo '<ul id="help_overview">'."\n";
-	echo '<li><a href="help/general-navigation/">General Navigation</a></li>'."\n\n";
+	echo '<li><a href="/help/general-navigation/">General Navigation</a></li>'."\n\n";
 	
-	echo '<li class="expand"><a href="help/browse/">Browse</a>'."\n";
+	echo '<li class="expand"><a href="/help/browse/">Browse</a>'."\n";
 	echo ' <ul>'."\n";
 	for($i=0; $i<count($browse_help_array); $i++)
 	{
@@ -34,13 +34,13 @@ else
 		{
 			$last = ' class="last"';
 		}
-		echo '<li'.$last.'><a href="help/browse/'.$browse_help_url.'/">'.$browse_help_output.'</a></li>'."\n";	
+		echo '<li'.$last.'><a href="/help/browse/'.$browse_help_url.'/">'.$browse_help_output.'</a></li>'."\n";	
 	}
 	echo ' </ul>'."\n";
 	echo '</li>'."\n\n";
 	
 	
-	echo '<li class="expand"><a href="help/assistant/">Assistant</a>'."\n";
+	echo '<li class="expand"><a href="/help/assistant/">Assistant</a>'."\n";
 	echo ' <ul>'."\n";
 	for($i=0; $i<count($assistant_help_array); $i++)
 	{
@@ -52,12 +52,12 @@ else
 		{
 			$last = ' class="last"';
 		}
-		echo '<li'.$last.'><a href="help/assistant/'.$browse_help_url.'/">'.$browse_help_output.'</a></li>'."\n";	
+		echo '<li'.$last.'><a href="/help/assistant/'.$browse_help_url.'/">'.$browse_help_output.'</a></li>'."\n";	
 	}
 	echo ' </ul>'."\n";
 	echo '</li>'."\n\n";
 	
-	echo '<li><a href="help/about/">About</a></li>'."\n\n";
+	echo '<li><a href="/help/about/">About</a></li>'."\n\n";
 	
 	echo '</ul>'."\n\n";
 }

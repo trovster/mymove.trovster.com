@@ -1,7 +1,8 @@
 <ul id="footer">
 <?php
 
-switch($_GET['section'])
+$section = !empty($_GET['section']) ? $_GET['section'] : '';
+switch($section)
 {
 	case 'lower-great-horton':
 	case 'city-centre':
@@ -14,11 +15,11 @@ switch($_GET['section'])
 		$help_link = '';
 		break;
 	default:
-		$help_link = $_GET['section'];
+		$help_link = $section;
 }
 
 echo '<li id="back"><a href="javascript:history.go(-1)"><span>Back</span></a></li>'."\n";
-echo '<li id="help"><a href="help/'.$help_link.'"><span>Help Me</span></a></li>'."\n";
+echo '<li id="help"><a href="/help/'.$help_link.'"><span>Help Me</span></a></li>'."\n";
 ?>
 </ul>
 

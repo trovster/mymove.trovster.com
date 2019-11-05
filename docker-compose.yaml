@@ -1,0 +1,28 @@
+version: "3.7"
+
+services:
+    website:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        image: trovster_mymove:latest
+        container_name: trovster_mymove
+        ports:
+            - "8005:80"
+        volumes:
+            - ./:/var/www/html
+        depends_on:
+            - mysql
+
+    mysql:
+        image: mysql:5.7
+        container_name: trovster_mymove_db
+        ports:
+            - 8006:3306
+        volumes:
+            - ./.db:/var/lib/mysql
+        environment:
+            MYSQL_DATABASE: mymove
+            MYSQL_USER: mymove_user
+            MYSQL_PASSWORD: mymove_password
+            MYSQL_ROOT_PASSWORD: root

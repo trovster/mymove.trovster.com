@@ -62,19 +62,20 @@ if(isset($_GET['edit']))
 		echo '</div>'."\n\n";
 	}
 	
-	echo '<input type="image" src="images/ok.gif" alt="ok" name="submit" value="Ok" id="submit" />'."\n";
-	echo '<p id="delete"><a href="assistant/'.$_GET['edit'].'/remove/">Delete</a></p>'."\n";
+	echo '<input type="image" src="/images/ok.gif" alt="ok" name="submit" value="Ok" id="submit" />'."\n";
+	echo '<p id="delete"><a href="/assistant/'.$_GET['edit'].'/remove/">Delete</a></p>'."\n";
 	
 	echo '</fieldset>'."\n";
 	echo '</form>'."\n\n";
 }
 elseif(isset($_SESSION['mymove']) && !empty($_SESSION['mymove']))
 {
+	global $dbase;
 	for($i=0; $i<count($_SESSION['mymove']); $i++)
 	{	
 		$address_search = strtolower(str_replace('-',' ',$_SESSION['mymove'][$i]));
 		$sql = "SELECT address,rent,available,area,bedrooms FROM houses WHERE address='$address_search' ORDER BY address ASC";
-		$sql_query = mysql_query($sql);
+		$sql_query = mysqli_query($dbase, $sql);
 		
 		while($sql_query_row = mysql_fetch_assoc($sql_query))
 		{
@@ -95,14 +96,14 @@ elseif(isset($_SESSION['mymove']) && !empty($_SESSION['mymove']))
 			{
 				$in_assistant = '<span class="in_assistant"></span>';
 			}
-			echo '<h3><a href="'.$address_url.'/">'.$in_assistant.$address_output.'</a></h3>'."\n";
+			echo '<h3><a href="/'.$address_url.'/">'.$in_assistant.$address_output.'</a></h3>'."\n";
 			
-			$image_url = 'images/'.$area_lower.'/'.$address_lower.'-small.jpg';
-			list($width, $height) = getimagesize($image_url);
-			if(getimagesize($image_url)===false)
+			$image_url = '/images/'.$area_lower.'/'.$address_lower.'-small.jpg';
+			list($width, $height) = getimagesize($_SERVER['DOCUMENT_ROOT'] . $image_url);
+			if(getimagesize($_SERVER['DOCUMENT_ROOT'] . $image_url)===false)
 			{
-				list($width, $height) = getimagesize('images/no_image_small.gif');
-				echo '<p id="image"><img src="images/no_image_small.gif" alt="No Image Provided" height="'.$height.'px" width="'.$width.'px" /></p>'."\n";
+				list($width, $height) = getimagesize($_SERVER['DOCUMENT_ROOT'] . 'images/no_image_small.gif');
+				echo '<p id="image"><img src="/images/no_image_small.gif" alt="No Image Provided" height="'.$height.'px" width="'.$width.'px" /></p>'."\n";
 			}
 			else
 			{
@@ -113,7 +114,7 @@ elseif(isset($_SESSION['mymove']) && !empty($_SESSION['mymove']))
 			echo '<dt>Bedrooms</dt>'."\n";
 			echo '<dd>'.$total_rooms.'</dd>'."\n";
 			echo '<dt>Rent</dt>'."\n";;
-			echo '<dd>£'.$rent.' <abbr title="Price Per Person Per Week">PPW</abbr></dd>'."\n";
+			echo '<dd>ï¿½'.$rent.' <abbr title="Price Per Person Per Week">PPW</abbr></dd>'."\n";
 			echo '<dt>Available</dt>'."\n";
 			echo '<dd>'.$available_date.'</dd>'."\n";
 			echo '</dl>'."\n";
@@ -134,7 +135,7 @@ elseif(isset($_SESSION['mymove']) && !empty($_SESSION['mymove']))
 			}
 		}
 	}
-	echo '<div id="nuke"><p><a href="assistant/nuke/">Remove All?</a></p></div>'."\n\n";
+	echo '<div id="nuke"><p><a href="/assistant/nuke/">Remove All?</a></p></div>'."\n\n";
 }
 else
 {

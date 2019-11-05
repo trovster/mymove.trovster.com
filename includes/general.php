@@ -1,8 +1,4 @@
 <?php
-ini_set('display_errors', 0);
-ini_set('error_reporting', 0);
-
-ini_set('session.use_trans_sid', false);
 
 // nulls all variables that are registered with register_globals (security fix)
 foreach ($_REQUEST as $k => $v) unset($$k);
