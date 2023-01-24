@@ -1,4 +1,7 @@
-www
+error_log
 node_modules
+.env
+_cache
+www
 .DS_Store
 .db

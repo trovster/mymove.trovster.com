@@ -8,21 +8,38 @@ services:
         image: trovster_mymove:latest
         container_name: trovster_mymove
         ports:
-            - "8005:80"
+            - '${FORWARD_APP_PORT:-80}:80'
         volumes:
             - ./:/var/www/html
-        depends_on:
-            - mysql
+        networks:
+            - trovster_mymove
 
     mysql:
-        image: mysql:5.7
-        container_name: trovster_mymove_db
+        image: 'mysql:5.7'
+        platform: linux/x86_64
+        container_name: trovster_mymove_mysql
         ports:
-            - 8006:3306
+            - '${FORWARD_DB_PORT:-3306}:3306'
+        env_file:
+            - ./.env
+        environment:
+            MYSQL_DATABASE: '${DB_DATABASE}'
+            MYSQL_USER: '${DB_USER}'
+            MYSQL_PASSWORD: 'password'
+            MYSQL_ROOT_PASSWORD: ''
+            MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+        command:
+            - --default-authentication-plugin=mysql_native_password
+            - --sql_mode=
         volumes:
             - ./.db:/var/lib/mysql
-        environment:
-            MYSQL_DATABASE: mymove
-            MYSQL_USER: mymove_user
-            MYSQL_PASSWORD: mymove_password
-            MYSQL_ROOT_PASSWORD: root
+            - ./database.sql:/docker-entrypoint-initdb.d/init.sql
+        healthcheck:
+            test: ["CMD", "mysqladmin", "ping"]
+        restart: 'unless-stopped'
+        networks:
+            - trovster_mymove
+
+networks:
+    trovster_mymove:
+        driver: bridge
