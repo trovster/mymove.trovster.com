@@ -42,7 +42,7 @@ if(!empty($_GET['find']) && $_GET['find']=='true')
 			{
 				$first_header = ' id="content"';
 			}
-			echo '<h2'.$first_header.'><a href="'.$address_url.'/">'.$in_assistant.$address_output.'</a></h2>'."\n";
+			echo '<h2'.$first_header.'><a href="/'.$address_url.'/">'.$in_assistant.$address_output.'</a></h2>'."\n";
 
 			$image_url = '/images/'.$area_lower.'/'.$address_lower.'-small.jpg';
 			if(@getimagesize($_SERVER['DOCUMENT_ROOT'] . $image_url)===false) {
