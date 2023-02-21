@@ -2,6 +2,7 @@
 ini_set('display_errors', 1);
 ini_set('error_reporting', E_ALL);
 ini_set('session.use_trans_sid', false);
+date_default_timezone_set('UTC');
 
 session_start();
 require_once('rating.php');
@@ -24,7 +25,7 @@ require_once('includes/general.php');
 require_once('includes/database.php');
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-	
+
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 
