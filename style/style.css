@@ -1,0 +1,710 @@
+body
+{
+width: 220px;
+margin: 0 auto;
+}
+* html body, #skip_links {
+display: none;
+}
+
+
+/* links */
+a:link, a:visited {
+color: #94C31C;
+text-decoration: none;
+}
+a:active, a:hover, a:focus {
+color: #3398C3;
+}
+
+
+/* general styling */
+* {
+margin: 0; padding: 0; border: 0;
+}
+p, ul, ol, h2, h3, dl {
+color: #1E7A97;
+font: 11px/150% Verdana, Geneva, Arial, Helvetica, sans-serif;
+text-align: justify;
+padding: 5px;
+}
+ul, ol {
+list-style: none;
+}
+dl {
+padding: 0;
+margin: -1px 0 0 0;
+border: 1px solid #3699B9;
+border-width: 1px 1px 0 1px;
+}
+dl.info_with_image {
+margin-left: 50px;
+}
+dl dt, dl dd {
+padding: 2px 5px;
+}
+dl dt {
+float: left;
+background-color: #B3E9F6;
+color: #3699B9;
+font-weight: bold;
+width: 50%;
+border-right: 1px solid #3699B9;
+}
+dl dd {
+padding-left: 60%;
+background-color: #D4ED67;
+color: #2B8AA8;
+border-bottom: 1px solid #3699B9;
+}
+dl#contact dt, dl#contact dd
+{
+float: none;
+width: auto;
+padding: 2px 5px;
+border-right: 0;
+border-bottom: 1px solid #3699B9;
+}
+p#image, #page-assistant p#image {
+width: 50px;
+height: 62px;
+float: left;
+background-color: #fff;
+border: 1px solid #3699B9;
+border-width: 0 1px 1px 1px;
+padding: 0;
+margin: 0;
+overflow: hidden;
+font-size: 8px;
+text-align: left;
+}
+
+p#image img, #property img {
+padding: 0;
+display: block;
+}
+#property {
+text-align: center;
+border-bottom: 5px solid #3699B9;
+}
+#property img {
+display: block;
+margin: 0;
+}
+
+/* headings */
+h1 {
+text-align: center;
+margin: 10px 0;
+}
+
+
+/* this is used to tell the user what to do */
+.activity {
+padding: 5px 22px;
+}
+.activity, h2, h2 a:link, h2 a:hover, h2 a:visited, h2 a:active, h3 {
+clear: left;
+color: #D4F7FF;
+font-weight: bold;
+text-align: center;
+padding: 5px;
+}
+.activity {
+background: #3699B9;
+}
+h2, h3 {
+background: #3699B9 url(../images/header.gif) repeat-x 0 0;
+border-top: 1px solid #3699B9;
+}
+#page-help h3 {
+background: #AED23E url(../images/header_green.gif) repeat-x 0 0;
+border-top: 1px solid #AED23E;
+color: #EEFFA3;
+}
+h2 a:link, h2 a:hover, h2 a:visited, h2 a:active,
+h3 a:link, h3 a:hover, h3 a:visited, h3 a:active, h3.trigger span {
+display: block;
+background: transparent url(../images/header_link.gif) no-repeat 5% 0;
+padding: 5px;
+margin: -5px;
+color: #D4F7FF;
+}
+h3.trigger span {
+width: 10px;
+height: 10px;
+float: left;
+margin-left: 5px;
+}
+.in_assistant {
+margin: -5px 5px 0 -25px;
+width: 21px;
+height: 25px;
+float: right;
+display: block;
+background: transparent url(../images/in_assistant.gif) no-repeat 0 0;
+text-indent: -9999px;
+}
+h2#help_title {
+padding-top: 45px;
+background: #3699B9 url(../images/help.gif) no-repeat 50% 10px;
+}
+
+
+/* navigation */
+#navigation, #add_house
+{
+background-color: #EAFEFF;
+border-top: 3px solid #3699B9;
+}
+#navigation li, #add_house li {
+float: left;
+width: 33%;
+text-align: center;
+}
+#navigation li a, #add_house li a {
+display: block;
+color: #3699B9;
+}
+#navigation li a {
+margin-top: -16px;
+padding: 40px 0 0;
+background: transparent url(../images/navigation/home.gif) no-repeat 50% 0;
+}
+#navigation li.assistant a {
+background-image: url(../images/navigation/assistant.gif);
+}
+#navigation li.about a {
+background-image: url(../images/navigation/about.gif);
+}
+#page-about #navigation li.about a, #page-assistant #navigation li.assistant a,
+#page-browse #navigation li.browse a, #page-lower-great-horton #navigation li.browse a,
+#page-city-centre #navigation li.browse a, #page-lister-hills #navigation li.browse a,
+#page-lidget-green #navigation li.browse a, #page-upper-great-horton #navigation li.browse a {
+text-decoration: underline;
+color: #1E7A97;
+font-weight: bold;
+}
+
+/*
+#page-browse #navigation li.browse a:before, #page-assistant #navigation li.assistant a:before, #page-about #navigation li.about a:before {
+content: "[ ";
+}
+#page-browse #navigation li.browse a:after, #page-assistant #navigation li.assistant a:after, #page-about #navigation li.about a:after {
+content: " ]";
+}
+*/
+
+
+#add_house li {
+width: 50%;
+margin: -5px 0 -10px;
+}
+#add_house li a {
+padding: 35px 0 10px;
+background: transparent url(../images/navigation/assistant_add.gif) no-repeat 50% 5px;
+}
+#add_house li#info a {
+border-right: 1px solid #3699B9;
+background-image: url(../images/navigation/info.gif);
+}
+
+/* domcollapse */
+.elementnormal{}
+.elementcollapsed{display:none;}
+
+/* easy clearing */
+#navigation:after, #add_house:after {
+content: ".";
+display: block;
+height: 0;
+clear: both;
+visibility: hidden;
+}
+
+
+
+
+/* footer */
+#footer {
+clear: both;
+}
+#footer, #footer li {
+height: 29px;
+padding: 0 0 10px;
+}
+#footer li {
+float: left;
+width: 50%;
+}
+#footer li a, #footer li a span {
+display: block;
+}
+#footer li a span {
+background: #CBE945 url(../images/footer_background.gif) repeat-x 0 0;
+height: 22px;
+padding: 6px 5px 0;
+font-weight: 900;
+text-align: center;
+text-decoration: none;
+text-transform: lowercase;
+font-size: 10px;
+color: #D4ED67;
+}
+#footer li#back a {
+background: #fff url(../images/footer_back.gif) no-repeat 0 0;
+padding-left: 38px;
+border-right: 2px solid #669B0A;
+}
+#footer li#help a {
+background: #fff url(../images/footer_help.gif) no-repeat 100% 0;
+padding-right: 40px;
+}
+
+
+
+
+/* homepage */
+#map {
+margin: 5px 0 0;
+text-align: center;
+}
+#area_navigation {
+margin: 0 auto;
+width: 180px;
+}
+#area_navigation li {
+padding: 2px 5px 2px 0;
+clear: left;
+}
+#area_navigation li a {
+display: block;
+padding: 2px 5px 0 25px;
+line-height: 150%;
+background: #fff url(../images/numbers.gif) no-repeat 0 0;
+}
+li#lower-great-horton a {
+color: #C3DF4A;
+}
+li#city-centre a {
+color: #A1C733;
+background-position: 0 -18px;
+}
+li#lister-hills a {
+color: #3699B9;
+background-position: 0 -36px;
+}
+li#lidget-green a {
+color: #51B6CC;
+background-position: 0 -54px;
+}
+li#upper-great-horton a {
+color: #BBDFE0;
+background-position: 0 -72px;
+}
+
+
+/* area page */
+ul#more_details {
+margin: 10px auto 7px;
+width: 120px;
+}
+ul#more_details li, #page-assistant #nuke p, #more-area-details p {
+font-size: 9px;
+background: transparent url(../images/button.gif) no-repeat 50% 0;
+padding: 7px 10px 7px 13px;
+margin: 5px 0;
+}
+ul#more_details li a, #page-assistant #nuke p a, #more-area-details p a {
+display: block;
+text-transform: uppercase;
+color: #1D7895;
+font-weight: bold;
+}
+ul#more_details li#find {
+letter-spacing: 0.04em;
+}
+ul#more_details li#find a {
+background: transparent url(../images/button_icons.gif) no-repeat 100% -1px;
+}
+ul#more_details li#details a {
+background: transparent url(../images/button_icons.gif) no-repeat 100% -36px;
+}
+
+#page-assistant #nuke {
+border-top: 1px solid #3699B9;
+}
+#page-assistant #nuke p, #more-area-details p {
+background-color: #fff;
+margin: 10px auto 7px;
+width: 99px;
+padding: 9px 10px 7px 13px;
+}
+#page-assistant #nuke p a {
+background: transparent url(../images/button_icons.gif) no-repeat 100% -73px;
+}
+#more-area-details p a {
+background: transparent url(../images/button_icons.gif) no-repeat 100% -113px;
+}
+
+
+.rated, .not_rated {
+border: 1px solid #3699B9;
+border-width: 0 1px 0px 1px;
+}
+
+#page-assistant p.rated {
+padding: 5px 8px;
+color: #3699B9;
+font-weight: bold;
+background: #EAFEFF url(../images/rating_output.gif) no-repeat 87% -7px;
+}
+#page-assistant .rated.rounded_10 {
+background-position: 87% -37px;
+}
+#page-assistant .rated.rounded_20 {
+background-position: 87% -67px;
+}
+#page-assistant .rated.rounded_30 {
+background-position: 87% -97px;
+}
+#page-assistant .rated.rounded_40 {
+background-position: 87% -127px;
+}
+#page-assistant .rated.rounded_50 {
+background-position: 87% -157px;
+}
+#page-assistant .rated.rounded_60 {
+background-position: 87% -187px;
+}
+#page-assistant .rated.rounded_70 {
+background-position: 87% -217px;
+}
+#page-assistant .rated.rounded_80 {
+background-position: 87% -247px;
+}
+#page-assistant .rated.rounded_90 {
+background-position: 87% -277px;
+}
+#page-assistant .rated.rounded_100 {
+background-position: 87% -277px;
+}
+
+#page-assistant p.not_rated {
+padding: 5px 20px;
+color: #A1C733;
+font-weight: bold;
+background: #F3FFD8 url(../images/rating_empty.gif) no-repeat 81.4% 50%;
+}
+
+
+
+#area_map {
+text-align: center;
+background-color: #D5E59A;
+}
+#error {
+clear: left;
+border-top: 3px solid #3699B9;
+background: #fff url(../images/error.gif) no-repeat 50% 20px;
+padding: 70px 0 20px;
+text-transform: uppercase;
+text-align: center;
+}
+
+
+
+
+/* rating form! */
+form#rating_form {
+font: 12px/150% Arial, Helvetica, sans-serif;
+}
+legend {
+display: none;
+}
+#rating_form div, #rating_form span {
+border-top: 1px solid #8DB221;
+}
+#rating_form label {
+display: block;
+background-color: #D4ED67;
+color: #2B8AA8;
+padding: 2px 5px;
+font-weight: bold;
+}
+#rating_form span {
+display: block;
+background: #F3FFD8 url(../images/rating.gif) no-repeat 95% -8px;
+}
+#rating_form select {
+width: 80px;
+}
+
+
+/* for the mobile display *//*
+#rating_form span {
+padding: 5px 10px;
+}
+#rating_form select {
+padding: 4px 0;
+}
+*/
+
+#rating_form .crap span, #rating_form .poor span, #rating_form .okay span,
+#rating_form .nice span, #rating_form .lovely span, #rating_form .perfect span {
+background-color: #EAFEFF;
+}
+#rating_form .crap span {
+background-position: 95% -34px;
+}
+#rating_form .poor span {
+background-position: 95% -59px;
+}
+#rating_form .okay span {
+background-position: 95% -84px;
+}
+#rating_form .nice span {
+background-position: 95% -109px;
+}
+#rating_form .lovely span {
+background-position: 95% -134px;
+}
+#rating_form .perfect span {
+background-position: 95% -160px;
+}
+
+/* for mobile */
+/*
+#rating_form .crap span {
+background-position: 95% -8px;
+}
+#rating_form .poor span {
+background-position: 95% -33px;
+}
+#rating_form .okay span {
+background-position: 95% -58px;
+}
+#rating_form .nice span {
+background-position: 95% -83px;
+}
+#rating_form .lovely span {
+background-position: 95% -108px;
+}
+#rating_form .perfect span {
+background-position: 95% -133px;
+}
+*/
+
+#rating_form .crap label, #rating_form .poor label, #rating_form .okay label,
+#rating_form .nice label, #rating_form .lovely label, #rating_form .perfect label {
+background-color: #B3E9F6;
+color: #3699B9;
+}
+
+
+/*#submit, */
+#page-assistant p#delete {
+padding: 0;
+width: 50%;
+height: 50px;
+text-indent: -9999px;
+float: left;
+}
+#delete a {
+display: block;
+width: 100%;
+height: 100%;
+}
+#submit {
+float: left;
+cursor: pointer;
+display: block;
+padding: 6px 40px 5px;
+background-color: #A1C733;
+}
+#delete a {
+background: #3699B9 url(../images/delete.gif) no-repeat 50% 50%;
+}
+
+
+
+#help_overview {
+background-color: #D4ED67;
+color: #1E7A97;
+font-weight: bold;
+}
+#help_overview li a {
+display: block;
+padding: 2px 20px;
+background: transparent url(../images/help_normal.gif) no-repeat 3px 3px;
+}
+/*
+#help_overview li.expand a {
+background: transparent url(../images/help_expand.gif) no-repeat 3px -37px;
+}
+*/
+#help_overview li.expand a {
+background: transparent url(../images/help_expand.gif) no-repeat 3px 3px;
+}
+#help_overview li.expand ul {
+/*
+display: none;
+*/
+margin: -5px 0 0;
+}
+#help_overview li.expand:hover > ul {
+display: block;
+}
+#help_overview li.expand ul li a, #help_overview li.expand:hover ul li a {
+padding: 0 30px;
+background: transparent url(../images/help_link.gif) no-repeat 3px 50%;
+}
+#help_overview li.expand ul li.last a, #help_overview li.expand:hover ul li.last a {
+background: transparent url(../images/help_link_last.gif) no-repeat 3px -5px;
+}
+
+#help_overview li a {
+color: #1E7A97;
+display: block;
+}
+#help_overview li a:hover {
+color: #1D5A6D;
+}
+
+
+#page-help p, #page-help ul#help_icons, #page-help ol {
+background-color: #D4ED67;
+padding: 10px 15px;
+}
+#intro, #help_icons, #page-help dl dd, #please_add {
+font-weight: bold;
+}
+#page-help #intro {
+text-align: center;
+}
+#page-help dl, #page-help dl * {
+border: 0;
+margin: 0;
+background-color: #D4ED67;
+}
+#page-help dl dt {
+clear: left;
+float: left;
+width: 30px;
+padding-top: 8px;
+text-align: center;
+}
+#page-help dl dd {
+margin: 0 0 0 40px;
+padding: 5px 10px;
+text-align: left;
+}
+#help_icons {
+margin-top: -15px;
+}
+#help_icons li {
+padding: 0 5px 0 50px;
+margin: 10px 0;
+background: #D4ED67 url(../images/help/help_icons.gif) no-repeat 0 -5px;
+}
+#help_icons li.assistant {
+background-position: 0 -75px;
+}
+#help_icons li.about {
+background-position: 0 -150px;
+}
+#help_icons strong, #page-about strong {
+text-transform: uppercase;
+}
+#page-help p.help-task {
+background: #A1C733 url(../images/help/task-arrow.gif) no-repeat 0 50%;
+color: #1E7A97;
+border-bottom: 2px solid #1E7A97;
+}
+#page-help ol {
+text-align: left;
+}
+
+
+#page-help ol li a {
+display: block;
+width: 126px;
+margin: 0 auto;
+text-align: center;
+position: relative;
+height: 27px;
+}
+#page-help ol li#help-body a {
+height: 85px;
+}
+#page-help ol li#help-footer a {
+height: 15px;
+}
+#page-help ol li span {
+position: absolute;
+left: 0;
+height: 100%;
+width: 100%;
+background: transparent url(../images/help/help_sections.gif) no-repeat 0 0;
+}
+#page-help ol li#help-body a span {
+background-position: 0 -27px;
+}
+#page-help ol li#help-footer a span {
+background-position: 0 -112px;
+}
+
+
+
+
+#page-assistant p, #page-about p {
+background-color: #B3E9F6;
+padding: 10px 15px;
+}
+#page-about #activities {
+border: 0;
+margin: 0;
+padding-top: 10px;
+background-color: #B3E9F6;
+}
+#page-about #activities dt, #page-about #activities dd {
+display: block;
+background-color: #B3E9F6;
+border: 0;
+padding: 0 15px;
+clear: left;
+color: #1E7A97;
+}
+#page-about #activities dt {
+width: auto;
+text-transform: uppercase;
+}
+#page-about #activities dd {
+padding-bottom: 10px;
+border-bottom: 1px solid #3699B9;
+margin-bottom: 10px;
+}
+#page-about #activities dd.last {
+margin-bottom: 0;
+border: 0;
+}
+
+#house_add, #check_assistant {
+padding: 10px 15px;
+}
+#house_add {
+background-color: #B3E9F6;
+}
+#check_assistant, #check_assistant a {
+background-color: #3699B9;
+color: #B3E9F6;
+}
+#check_assistant a {
+text-decoration: underline;
+}
+
+
+
+
+
+
