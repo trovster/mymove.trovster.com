@@ -47,7 +47,7 @@ if(!empty($_GET['find']) && $_GET['find']=='true')
 			$image_url = '/images/'.$area_lower.'/'.$address_lower.'-small.jpg';
 			if(@getimagesize($_SERVER['DOCUMENT_ROOT'] . $image_url)===false) {
 				list($width, $height) = getimagesize($_SERVER['DOCUMENT_ROOT'] . '/images/no_image_small.gif');
-				echo '<p id="image"><img src="images/no_image_small.gif" alt="No Image Provided" height="'.$height.'px" width="'.$width.'px" /></p>'."\n";
+				echo '<p id="image"><img src="/images/no_image_small.gif" alt="No Image Provided" height="'.$height.'px" width="'.$width.'px" /></p>'."\n";
 			} else {
 				list($width, $height) = getimagesize($_SERVER['DOCUMENT_ROOT'] . $image_url);
 				echo '<p id="image"><img src="'.$image_url.'" alt="Front View of '.$address_output.'" height="'.$height.'px" width="'.$width.'px" /></p>'."\n";
@@ -213,7 +213,7 @@ elseif(isset($_GET['find']))
 			if(@getimagesize($_SERVER['DOCUMENT_ROOT'] . $image_url)===false)
 			{
 				list($width, $height) = getimagesize($_SERVER['DOCUMENT_ROOT'] . '/images/no_image_large.gif');
-				echo '<div id="property"><img src="images/no_image_large.gif" alt="No Image Provided" height="'.$height.'px" width="'.$width.'px" /></div>'."\n\n";
+				echo '<div id="property"><img src="/images/no_image_large.gif" alt="No Image Provided" height="'.$height.'px" width="'.$width.'px" /></div>'."\n\n";
 			}
 			else
 			{
