@@ -81,12 +81,14 @@ text-align: left;
 
 p#image img, #property img {
 padding: 0;
+display: block;
 }
 #property {
 text-align: center;
 border-bottom: 5px solid #3699B9;
 }
 #property img {
+display: block;
 margin: 0;
 }
 
@@ -213,10 +215,10 @@ background-image: url(../images/navigation/info.gif);
 
 /* easy clearing */
 #navigation:after, #add_house:after {
-content: "."; 
-display: block; 
-height: 0; 
-clear: both; 
+content: ".";
+display: block;
+height: 0;
+clear: both;
 visibility: hidden;
 }
 
