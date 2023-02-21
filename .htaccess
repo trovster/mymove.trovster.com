@@ -8,6 +8,7 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^browse/?$ /index.php [L]
 RewriteRule ^([^/.]+)/details/?$ /index.php?section=$1&details=true [L,NC,QSA]
 RewriteRule ^([^/.]+)/find/?$ /index.php?section=$1&find=true [L,NC,QSA]
+RewriteRule ^([^/.]+)/([^/.]+)/?$ /index.php?section=$1&find=$2 [L,NC,QSA]
 RewriteRule ^([^/.]+)/([^/.]+)/([^/.]+)/?$ /index.php?section=$1&type=$2&part=$3 [L,NC,QSA]
 RewriteRule ^([^/.]+)/([^/.]+)/?$ /index.php?section=$1&type=$2 [L,NC,QSA]
 RewriteRule ^([^/.]+)/?$ index.php?section=$1 [L,NC,QSA]
