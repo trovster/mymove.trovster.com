@@ -11,6 +11,7 @@
         "remove": "docker rm trovster_mymove trovster_mymove_mysql",
         "prebuild": "npm run start",
         "build": "snap http://127.0.0.1:8006 -o www && cp CNAME ./www/ && cp -r images/ ./www/images/",
+        "predeploy": "npm run build",
         "deploy": "push-dir --dir=www --branch=gh-pages"
     },
     "devDependencies": {
